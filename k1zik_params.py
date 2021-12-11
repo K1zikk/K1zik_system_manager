@@ -1,10 +1,7 @@
-yearz = '18'
-yearz_real_life = '15'
-race = 'cat'
-race_in_real_life = 'cat'
-reace_in_school = 'half-human half - cat'
-birth_date = '22.08.2006'
-sexual_interest = True
-gender = 'attack helicopter'
-mind_control = 'Maf'
-mind_controllers = ['Mof','muf','mef','mif','m`E`f','bref','braf','brif','bruf','brof']
+yearz = ' 18'
+yearz_real_life = ' 15'
+race = ' multifunctional_robot'
+race_in_real_life = ' half-human half-cat'
+birth_date = ' 22.08.2006'
+sexual_interest = ' True'
+gender = ' attack helicopter'

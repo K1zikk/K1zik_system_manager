@@ -1,7 +1,0 @@
-yearz = ' 18'
-yearz_real_life = ' 15'
-race = ' multifunctional_robot'
-race_in_real_life = ' half-human half-cat'
-birth_date = ' 22.08.2006'
-sexual_interest = ' True'
-gender = ' attack helicopter'

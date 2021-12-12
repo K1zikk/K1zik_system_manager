@@ -1,10 +1,10 @@
 import sys
 from tkinter import *
 from tkinter import messagebox
-from k1zik_defs import *
 from k1zik_params import *
 
 root = Tk()
+powerV = 0
 root.title("Главное окно")
 root.protocol("WM_DELETE_WINDOW", lambda root_window=root: on_closing_params(root_window))
 
@@ -98,8 +98,6 @@ def main_exiting():
     sys.exit()
 
 def k1zik_vibration():
-    global power
-    power = ' 0'
     new_window_2 = Toplevel(root)
     new_window_2.wm_attributes("-topmost", 1)
     new_window_2.title("Вибрация")
@@ -107,15 +105,37 @@ def k1zik_vibration():
                           lambda vibration_window=new_window_2: on_closing_vibration(vibration_window))
     vibration_frame = Frame(new_window_2)
     vibration_frame.pack()
-    titlelabel = Label(vibration_frame, width=120, text='Сила вибрации' + power, font="Courier 19", fg="lime green")
-    vibration_button_plus = Button(vibration_frame, text='-', width=90, font="Courier 19", fg="lime green")
-    vibration_button_minus = Button(vibration_frame, text='+', width=90, font="Courier 19", fg="lime green")
-    vibration_button_vkl_vkl = Button(vibration_frame, text='вкл', width=90, font="Courier 19", fg="lime green")
-    vibration_button_minus.grid(row=1, column=0)
-    vibration_button_plus.grid(row=3, column=0)
-    vibration_button_vkl_vkl.grid(row=2, column=0)
+    global vibration_button_vkl_vkl
+    global vibrolabel
+    titlelabel = Label(vibration_frame, width=120, text='Уровень вибрации', font="Courier 19", fg="lime green")
+    vibrolabel = Label(vibration_frame, width=120, text=str(powerV), font="Courier 19", fg="lime green")
+    vibration_button_plus = Button(vibration_frame, text='-', width=90, font="Courier 19", fg="lime green", command=power_minus)
+    vibration_button_minus = Button(vibration_frame, text='+', width=90, font="Courier 19", fg="lime green",command=power_plus)
+    vibration_button_vkl_vkl = Button(vibration_frame, text='Выкл', width=90, font="Courier 19", fg="lime green",command = vkl_vkl)
+    vibration_button_minus.grid(row=2, column=0)
+    vibration_button_vkl_vkl.grid(row=3, column=0)
+    vibration_button_plus.grid(row=4, column=0)
     titlelabel.grid(row=0, column=0)
+    vibrolabel.grid(row=1, column=0)
 
+
+def power_plus():
+    global powerV
+    if powerV != 100:
+        powerV = powerV + 10
+        vibrolabel['text'] = str(powerV)
+
+def power_minus():
+    global powerV
+    if powerV != 0:
+        powerV = powerV - 10
+        vibrolabel['text'] = str(powerV)
+
+def vkl_vkl():
+    if (vibration_button_vkl_vkl['text'] == 'Выкл'):
+        vibration_button_vkl_vkl['text'] = 'Вкл'
+    else:
+        vibration_button_vkl_vkl['text'] = 'Выкл'
 
 def k1zik_bersk():
     new_window_1 = Toplevel(root)

@@ -39,67 +39,11 @@ def on_closing_skin_params(skin_window):
         skin_window.destroy()
 
 
-def k1zik_params():
-    global yearz
-    global yearz_real_life
-    global race
-    global race_in_real_life
-    global love_interest
-    global gender
-    yearz = '18'
-    yearz_real_life = '15'
-    race = 'multifunctional_robot'
-    race_in_real_life = 'half-human half-cat'
-    love_interest = 'True'
-    gender = 'attack helicopter'
-
-    new_window_4 = Toplevel(root)
-    new_window_4.wm_attributes("-topmost", 1)
-    new_window_4.title("Список параметров")
-    new_window_4.protocol("WM_DELETE_WINDOW", lambda params_window=new_window_4: on_closing_params(params_window))
-    params_frame = Frame(new_window_4)
-    params_frame.pack()
-    titlelabel = Label(params_frame, width=120,
-                       text='''Режим использования кристалов и тнт для взрява всего и вся и убийств''',
-                       font="Courier 19", fg="lime green")
-    naming_yearz_Label = Label(params_frame, text='Годики по рп: ' + yearz, width=50, font="Courier 19", fg="lime green")
-    naming_yearzrl_Label = Label(params_frame, text='Годики: ' + yearz_real_life, width=50, font="Courier 19", fg="lime green")
-    naming_race_Label = Label(params_frame, text='Раса по рп: ' + race, width=50, font="Courier 19",
-                              fg="lime green")
-    naming_raceirlf_Label = Label(params_frame, text='Раса в реальной жизни: ' + race_in_real_life, width=50, font="Courier 19",
-                                  fg="lime green")
-    naming_love_interest_Label = Label(params_frame, text='Любовный интерес: ' + love_interest, width=50,
-                                       font="Courier 19", fg="lime green")
-    naming_gender_Label = Label(params_frame, text='Пол: ' + gender, width=50, font="Courier 19",
-                                fg="lime green")
-
-    naming_yearz_Label.grid(row=1, column=0)
-    naming_yearzrl_Label.grid(row=2, column=0)
-    naming_race_Label.grid(row=3, column=0)
-    naming_raceirlf_Label.grid(row=4, column=0)
-    naming_love_interest_Label.grid(row=5, column=0)
-    naming_gender_Label.grid(row=6, column=0)
-
-
 def k1zik_edit_params():
-    global yeazr_entry
-    global yearzrl_entry
-    global race_entry
-    global raceirlf_entry
-    global love_interest_entry
-    global gender_entry
-
-    def k1zik_editing_params():
-        yearz = yearz_entry.get()
-        yearz_real_life = yearzrl_entry.get()
-        race = race_entry.get()
-        race_in_real_life = raceirlf_entry.get()
-        love_interest = love_interest_entry.get()
-        gender = gender_entry.get()
-
     new_window_3 = Toplevel(root)
     new_window_3.wm_attributes("-topmost", 1)
-    new_window_3.title("Редактирование параметров")
+    new_window_3.title('''Редактирование параметров
+    Внимание при нажимании кнопки сохранения параметры не изменяются в списке параметров''')
     edit_params_frame = Frame(new_window_3)
     edit_params_frame.pack()
     titlelabel = Label(edit_params_frame, width=120, text='''Режим редактирования параметров''', font="Courier 19",
@@ -114,7 +58,7 @@ def k1zik_edit_params():
     gender_Label = Label(edit_params_frame, text='Пол', width=50, font="Courier 19",
                          fg="lime green")
     confirm_button = Button(edit_params_frame, text='confirm', width=50, font="Courier 19",
-                            fg="lime green", command=k1zik_editing_params)
+                            fg="lime green")
 
     yearz_entry = Entry(edit_params_frame)
     yearzrl_entry = Entry(edit_params_frame)
@@ -138,6 +82,45 @@ def k1zik_edit_params():
     love_interest_entry.grid(row=10, column=0)
     gender_entry.grid(row=12, column=0)
     confirm_button.grid(row=13, column=0)
+
+
+def k1zik_params():
+    yearz = '18'
+    yearz_real_life = '15'
+    race = 'multifunctional_robot'
+    race_in_real_life = 'half-human half-cat'
+    love_interest = 'True'
+    gender = 'attack helicopter'
+
+    new_window_4 = Toplevel(root)
+    new_window_4.wm_attributes("-topmost", 1)
+    new_window_4.title("Список параметров")
+    new_window_4.protocol("WM_DELETE_WINDOW", lambda params_window=new_window_4: on_closing_params(params_window))
+    params_frame = Frame(new_window_4)
+    params_frame.pack()
+    titlelabel = Label(params_frame, width=120,
+                       text='''Режим использования кристалов и тнт для взрява всего и вся и убийств''',
+                       font="Courier 19", fg="lime green")
+    naming_yearz_Label = Label(params_frame, text='Годики по рп: ' + yearz, width=50, font="Courier 19",
+                               fg="lime green")
+    naming_yearzrl_Label = Label(params_frame, text='Годики: ' + yearz_real_life, width=50, font="Courier 19",
+                                 fg="lime green")
+    naming_race_Label = Label(params_frame, text='Раса по рп: ' + race, width=50, font="Courier 19",
+                              fg="lime green")
+    naming_raceirlf_Label = Label(params_frame, text='Раса в реальной жизни: ' + race_in_real_life, width=50,
+                                  font="Courier 19",
+                                  fg="lime green")
+    naming_love_interest_Label = Label(params_frame, text='Любовный интерес: ' + love_interest, width=50,
+                                       font="Courier 19", fg="lime green")
+    naming_gender_Label = Label(params_frame, text='Пол: ' + gender, width=50, font="Courier 19",
+                                fg="lime green")
+
+    naming_yearz_Label.grid(row=1, column=0)
+    naming_yearzrl_Label.grid(row=2, column=0)
+    naming_race_Label.grid(row=3, column=0)
+    naming_raceirlf_Label.grid(row=4, column=0)
+    naming_love_interest_Label.grid(row=5, column=0)
+    naming_gender_Label.grid(row=6, column=0)
 
 
 def main_exiting():
